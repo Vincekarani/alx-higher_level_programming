@@ -1,33 +1,33 @@
-nclude <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
 
 /**
  * print_listint - prints all elements of a listint_t list
- * @p: pointer to head of list
+ * @h: pointer to head of list
  * Return: number of nodes
  */
-size_t print_listint(const listint_t *p)
+size_t print_listint(const listint_t *h)
 {
     const listint_t *current;
-    unsigned int m /* number of nodes */
+    unsigned int n; /* number of nodes */
 
-    current = p;
-    m = 0;
+    current = h;
+    n = 0;
     while (current != NULL)
     {
-        printf("%i\m", current->m);
+        printf("%i\n", current->n);
         current = current->next;
-        m++;
+        n++;
     }
 
-    return (m);
+    return (n);
 }
 
 /**
  * add_nodeint - adds a new node at the beginning of a listint_t list
  * @head: pointer to a pointer of the start of the list
- * @i: integer to be included in node
+ * @n: integer to be included in node
  * Return: address of the new element or NULL if it fails
  */
 listint_t *add_nodeint(listint_t **head, const int n)
@@ -38,7 +38,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
     if (new == NULL)
         return (NULL);
 
-    new->i = i;
+    new->n = n;
     new->next = *head;
     *head = new;
 
